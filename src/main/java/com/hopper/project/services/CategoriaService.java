@@ -12,10 +12,10 @@ import com.hopper.project.repositories.CategoriaRepository;
 public class CategoriaService {
 
 	@Autowired
-	private CategoriaRepository repo;
+	private CategoriaRepository repository;
 	
 	public Categoria buscar(Integer id) {
-		Optional<Categoria> obj = repo.findById(id);
+		Optional<Categoria> obj = repository.findById(id);
 		return obj.orElse(null);
 	}
 	
