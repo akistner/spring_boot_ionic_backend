@@ -32,7 +32,7 @@ import com.hopper.project.repositories.PedidoRepository;
 import com.hopper.project.repositories.ProdutoRepository;
 
 @SpringBootApplication
-public class CursomcApplication implements CommandLineRunner {
+public class SystemApplication implements CommandLineRunner {
 
 	@Autowired
 	private CategoriaRepository categoriaRepository;
@@ -54,9 +54,9 @@ public class CursomcApplication implements CommandLineRunner {
 	private ItemPedidoRepository itemPedidoRepository;
 	
 	public static void main(String[] args) {
-		SpringApplication.run(CursomcApplication.class, args);
+		SpringApplication.run(SystemApplication.class, args);
 	}
-
+	
 	@Override
 	public void run(String... args) throws Exception {
 		
@@ -75,7 +75,7 @@ public class CursomcApplication implements CommandLineRunner {
 		Cidade c3 = new Cidade(null, "Campinas", est2);
 		
 		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA);
-				
+		
 		Endereco e1 = new Endereco(null, "Rua Flores", "300", "Apto. 303", "Jardim", "38220834", cli1, c1);
 		Endereco e2 = new Endereco(null, "Avenida Matos", "105", "Sala 800", "Centro", "38777012", cli1, c2);
 		
@@ -126,5 +126,5 @@ public class CursomcApplication implements CommandLineRunner {
 		itemPedidoRepository.saveAll(Arrays.asList(ip1, ip2, ip3));
 		
 	}
-
+	
 }
