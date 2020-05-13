@@ -1,7 +1,7 @@
 package com.hopper.project.domain.enums;
 
 public enum EstadoPagamento {
-
+	
 	PENDENTE(1, "Pendente"),
 	QUITADO(2, "Quitado"),
 	CANCELADO(3, "Cancelado");
@@ -13,11 +13,11 @@ public enum EstadoPagamento {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
-
+	
 	public Integer getCod() {
 		return cod;
 	}
-
+	
 	public String getDescricao() {
 		return descricao;
 	}

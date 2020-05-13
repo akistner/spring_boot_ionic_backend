@@ -12,15 +12,15 @@ public enum TipoCliente {
 		this.cod = cod;
 		this.descricao = descricao;
 	}
-
+	
 	public Integer getCod() {
 		return cod;
 	}
-
+	
 	public String getDescricao() {
 		return descricao;
 	}
-
+	
 	public static TipoCliente toEnum(Integer cod) {
 		if(cod == null) return null;
 		for(TipoCliente i : TipoCliente.values()) {

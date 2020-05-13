@@ -11,7 +11,7 @@ import com.hopper.project.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
-
+	
 	@Autowired
 	private CategoriaRepository repository;
 	
@@ -23,6 +23,11 @@ public class CategoriaService {
 	
 	public Categoria insert(Categoria obj) {
 		obj.setId(null);
+		return repository.save(obj);
+	}
+	
+	public Categoria update(Categoria obj) {
+		find(obj.getId());
 		return repository.save(obj);
 	}
 	
