@@ -54,17 +54,18 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		String username = ((UserSS) auth.getPrincipal()).getUsername();
 		String token = jwtUtil.generateToken(username);
 		res.addHeader("Authorization", "Bearer " + token);
+		res.addHeader("access-control-expose-headers", "Authorization");
 	}
 	
 	private class JWTAuthenticationFailureHandler implements AuthenticationFailureHandler {
 		
 		@Override
-		public void onAuthenticationFailure(HttpServletRequest request,
-											HttpServletResponse response,
+		public void onAuthenticationFailure(HttpServletRequest req,
+											HttpServletResponse res,
 											AuthenticationException exception) throws IOException, ServletException {
-			response.setStatus(401);
-			response.setContentType("application/json");
-			response.getWriter().append(json());
+			res.setStatus(401);
+			res.setContentType("application/json");
+			res.getWriter().append(json());
 		}
 		
 		private String json() {
